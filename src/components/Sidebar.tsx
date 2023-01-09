@@ -24,7 +24,7 @@ const Sidebar = () => {
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
               onClick={() => setActiveMenu(false)}
             >
-              <SiShopware /> <span>Shoppy</span>
+              <SiShopware /> <span>My Dashboard</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
