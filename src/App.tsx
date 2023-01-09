@@ -22,10 +22,12 @@ import {
   ColorMapping,
   Editor,
 } from "./pages";
+import { useStateContext } from "./contexts/ContextProvider";
 import "./App.css";
 
 const App = () => {
-  const activeMenu = false;
+  const { activeMenu } = useStateContext();
+
   return (
     <div className="flex relative dark:bg-main-dark-bg">
       <div className="fixed right-4 bottom-4 z-[1000]">
@@ -57,7 +59,7 @@ const App = () => {
           <Navbar />
         </div>
       </div>
-      <div className="">
+      <div className="content">
         <Routes>
           {/* dashboard  */}
           <Route path="/" element={<Ecommerce />} />
