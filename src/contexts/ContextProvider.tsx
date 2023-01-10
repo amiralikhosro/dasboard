@@ -20,6 +20,7 @@ interface StateContextInterface {
   screenSize: SizeScreenInterface;
   setScreenSize: React.Dispatch<React.SetStateAction<SizeScreenInterface>>;
   handleClick: (clicked: HandleClickParam) => void;
+  currentMode: "Dark" | "Light";
 }
 
 const StateContext = createContext<StateContextInterface>({
@@ -31,6 +32,7 @@ const StateContext = createContext<StateContextInterface>({
   screenSize: undefined,
   setScreenSize: (screenSize) => screenSize,
   handleClick: (click) => click,
+  currentMode: "Light",
 });
 
 export interface Props {
