@@ -9,12 +9,15 @@ const initialState = {
 
 type ClickedInterface = typeof initialState;
 export type HandleClickParam = "chat" | "cart" | "userProfile" | "notification";
+type SizeScreenInterface = undefined | number;
 
 interface StateContextInterface {
   activeMenu: boolean;
   isClicked: ClickedInterface;
   setActiveMenu: React.Dispatch<React.SetStateAction<boolean>>;
   setIsClicked: React.Dispatch<React.SetStateAction<ClickedInterface>>;
+  screenSize: SizeScreenInterface;
+  setScreenSize: React.Dispatch<React.SetStateAction<SizeScreenInterface>>;
   handleClick: (clicked: HandleClickParam) => void;
 }
 
@@ -23,6 +26,8 @@ const StateContext = createContext<StateContextInterface>({
   isClicked: initialState,
   setActiveMenu: (activeMenu) => activeMenu,
   setIsClicked: (isClicked) => isClicked,
+  screenSize: undefined,
+  setScreenSize: (screenSize) => screenSize,
   handleClick: (click) => click,
 });
 
@@ -33,6 +38,7 @@ export interface Props {
 export const ContextProvider = ({ children }: Props) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
+  const [screenSize, setScreenSize] = useState<SizeScreenInterface>();
 
   const handleClick = (clicked: HandleClickParam) => {
     setIsClicked({ ...initialState, [clicked]: true });
@@ -45,6 +51,8 @@ export const ContextProvider = ({ children }: Props) => {
         setActiveMenu,
         isClicked,
         setIsClicked,
+        screenSize,
+        setScreenSize,
         handleClick,
       }}
     >

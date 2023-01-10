@@ -8,6 +8,7 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import avatar from "../data/avatar.jpg";
 import { useStateContext } from "../contexts/ContextProvider";
+import useNavbar from "../hooks/useNavbar";
 import { Cart, Chat, Notification, UserProfile } from ".";
 
 interface NavButton {
@@ -36,11 +37,9 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }: NavButton) => (
 );
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, handleClick } =
-    useStateContext();
   const currentColor = "blue";
-
-  const handleActiveMenu = () => setActiveMenu(!activeMenu);
+  const { handleActiveMenu } = useNavbar();
+  const { isClicked, handleClick } = useStateContext();
 
   return (
     <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
