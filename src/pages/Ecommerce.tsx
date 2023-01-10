@@ -1,5 +1,6 @@
 import { BsCurrencyDollar } from "react-icons/bs";
 
+import { Button } from "../components";
 import { earningData } from "../data/dummy";
 
 const Ecommerce = () => {
