@@ -12,6 +12,7 @@ export type HandleClickParam = "chat" | "cart" | "userProfile" | "notification";
 type SizeScreenInterface = undefined | number;
 
 interface StateContextInterface {
+  initialState: typeof initialState;
   activeMenu: boolean;
   isClicked: ClickedInterface;
   setActiveMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,6 +23,7 @@ interface StateContextInterface {
 }
 
 const StateContext = createContext<StateContextInterface>({
+  initialState,
   activeMenu: false,
   isClicked: initialState,
   setActiveMenu: (activeMenu) => activeMenu,
@@ -54,6 +56,7 @@ export const ContextProvider = ({ children }: Props) => {
         screenSize,
         setScreenSize,
         handleClick,
+        initialState,
       }}
     >
       {children}
